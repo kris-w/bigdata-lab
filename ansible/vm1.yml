@@ -1,0 +1,17 @@
+- hosts: vm1
+  become: yes
+  vars_files:
+    - vars.yml
+  roles:
+    - docker
+    - firewall
+    - fail2ban
+  tasks:
+    - name: Clone repo
+      git:
+        repo: https://github.com/yourname/bigdata-lab.git
+        dest: ~/bigdata-lab
+    - name: Start VM1 containers
+      command: docker-compose up -d
+      args:
+        chdir: ~/bigdata-lab/docker/vm1

@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+  spark:
+    image: bitnami/spark:3.5.0
+    container_name: spark
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+    ports:
+      - "8080:8080"
+    networks:
+      - lab-net
+    restart: unless-stopped
+
+  hadoop:
+    image: bde2020/hadoop-namenode:3.4.0
+    container_name: hadoop
+    environment:
+      - CLUSTER_NAME=lab
+      - CORE_CONF_fs_defaultFS=hdfs://hadoop:9000
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./data/hdfs:/hadoop/dfs
+    networks:
+      - lab-net
+    restart: unless-stopped
+
+networks:
+  lab-net:
+    driver: bridge

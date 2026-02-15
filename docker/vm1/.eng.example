@@ -1,0 +1,10 @@
+# Ports exposed by Spark/Hadoop
+SPARK_WEBUI_PORT=8080
+HADOOP_NAMENODE_PORT=9000
+
+# VM2 IP and Elasticsearch port
+VM2_ELASTIC_IP=10.0.1.20
+VM2_ELASTIC_PORT=9200
+
+# Optional: allowed client IP (your IP)
+ALLOWED_CLIENT_IP=YOUR_HOME_IP
