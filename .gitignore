@@ -1,0 +1,35 @@
+################################
+# Terraform
+################################
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+################################
+# Terraform secrets
+################################
+terraform.tfvars
+*.auto.tfvars
+
+################################
+# OCI credentials
+################################
+.oci/
+*.pem
+*.key
+
+################################
+# Environment files
+################################
+.env
+.env.*
+
+################################
+# OS junk
+################################
+.DS_Store
