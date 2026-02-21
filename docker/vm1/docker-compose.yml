@@ -1,7 +1,6 @@
-version: "3.9"
 services:
   spark:
-    image: bitnami/spark:3.5.0
+    image: bitnami/spark:3.5.1
     container_name: spark
     environment:
       - SPARK_MODE=master
@@ -14,15 +13,13 @@ services:
     restart: unless-stopped
 
   hadoop:
-    image: bde2020/hadoop-namenode:3.4.0
+    image: uhopper/hadoop:2.7.2
     container_name: hadoop
     environment:
       - CLUSTER_NAME=lab
       - CORE_CONF_fs_defaultFS=hdfs://hadoop:9000
     ports:
       - "9000:9000"
-    volumes:
-      - ./data/hdfs:/hadoop/dfs
     networks:
       - lab-net
     restart: unless-stopped
