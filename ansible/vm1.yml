@@ -11,7 +11,8 @@
       git:
         repo: https://github.com/kris-w/bigdata-lab
         dest: ~/bigdata-lab
+
     - name: Start VM1 containers
-      command: docker-compose up -d
+      command: docker compose up -d
       args:
         chdir: ~/bigdata-lab/docker/vm1
