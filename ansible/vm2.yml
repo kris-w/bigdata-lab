@@ -9,7 +9,7 @@
   tasks:
     - name: Clone repo
       git:
-        repo: https://github.com/yourname/bigdata-lab.git
+        repo: https://github.com/kris-w/bigdata-lab
         dest: ~/bigdata-lab
     - name: Start VM2 containers
       command: docker-compose up -d
