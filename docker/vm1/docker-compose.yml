@@ -13,16 +13,16 @@ services:
     restart: unless-stopped
 
   hadoop:
-    image: uhopper/hadoop:2.7.2
+    image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
     container_name: hadoop
+    restart: unless-stopped
     environment:
-      - CLUSTER_NAME=lab
-      - CORE_CONF_fs_defaultFS=hdfs://hadoop:9000
+      - CLUSTER_NAME=test
     ports:
+      - "9870:9870"
       - "9000:9000"
     networks:
       - lab-net
-    restart: unless-stopped
 
 networks:
   lab-net:
